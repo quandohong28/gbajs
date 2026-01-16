@@ -294,6 +294,10 @@
 			margin: 0;
 			overflow: auto;
 		}
+
+		#hide-toolbar {
+			height: 1px;
+		}
 	</style>
 
 	<script>
@@ -301,8 +305,10 @@
 	</script>
 </head>
 
+
 <body>
 	<canvas id="screen" width="866" height="580"></canvas>
+	<div id="hide-toolbar"></div>
 	<!-- <section id="controls">
 		<div id="preload">
 			<button class="bigbutton" id="select" onclick="document.getElementById('loader').click()">SELECT</button>
