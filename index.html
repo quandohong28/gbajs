@@ -81,15 +81,23 @@
 
 		.main {
 			display: flex;
-			
+
 			justify-content: center;
 			align-items: center;
 		}
 
 		.game-list img {
-			
 			width: 150px;
 			height: 150px;
+			transition: transform 0.2s ease;
+		}
+
+		.game-list img:hover {
+			transform: scale(1.2);
+		}
+		
+		.game-list img:focus {
+			transform: scale(1.2);
 		}
 	</style>
 </head>
