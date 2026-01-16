@@ -13,6 +13,11 @@ button {
 	font-family: 'Calibri', 'Verdana', sans-serif;
 }
 
+.container {
+	height: 730px;
+	width: 1280px;
+}
+
 #screen {
 	margin-top: 70px;
 	margin-bottom: 150px;
