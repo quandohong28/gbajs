@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>GBAJS</title>
+
+	<style>
+		html,
+		body {
+			touch-action: manipulation;
+			overscroll-behavior: none;
+			background-color: #151515;
+			color: white;
+			height: 720px;
+			width: 1280px;
+			font-family: Arial, Helvetica, sans-serif;
+			padding: 0;
+			margin: 0;
+		}
+
+		.container {
+			padding: 70px 40px 0px 40px;
+		}
+
+		.header {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 36px;
+			padding: 0 20px;
+
+		}
+
+		.game-title {
+			text-align: center;
+			background-color: #5A5A5A;
+			padding: 4px 26px;
+			border-radius: 100px;
+		}
+
+		.game-title p {
+			font-size: 12px;
+			font-weight: bold;
+
+		}
+
+		.nav {
+			display: flex;
+			gap: 40px;
+		}
+
+		.nav-button {
+			border: none;
+			padding: 10px;
+			border-radius: 100px;
+			height: 44px;
+			width: 44px;
+		}
+
+		.game-list {
+			width: 80%;
+			padding: 8px;
+			height: 580px;
+			overflow-y: auto;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: left;
+			gap: 10px;
+			/* Added gap for spacing between game items */
+		}
+
+		.main {
+			display: flex;
+			
+			justify-content: center;
+			align-items: center;
+		}
+
+		.game-list a {
+			
+			width: 120px;
+			height: 120px;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="header">
+			<div class="game-title">
+				<p>Pokemon FireRed Version</p>
+			</div>
+			<div class="nav">
+				<button class="nav-button"><img src="./svg/album.png" alt=""></button>
+				<button class="nav-button"><img src="./svg/emulator.png" alt=""></button>
+				<button class="nav-button"><img src="./svg/menu.png" alt=""></button>
+			</div>
+		</div>
+
+		<div class="main">
+			<div class="game-list">
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 1.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 2.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 3.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 4.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 5.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 6.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 7.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 8.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 9.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 10.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 11.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 12.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 13.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 14.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 15.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 16.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 17.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 18.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 19.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 20.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 21.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 22.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 23.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 24.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 25.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 26.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 27.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 28.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 29.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 30.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 31.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 32.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 33.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 34.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 35.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 36.png" alt="">
+				</a>
+				<a href="" class="game-button">
+					<img src="./game_thumbnails/image 37.png" alt="">
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		document.addEventListener('gesturestart', e => e.preventDefault());
+		document.addEventListener('gesturechange', e => e.preventDefault());
+		document.addEventListener('gestureend', e => e.preventDefault());
+	</script>
+
+	<script>
+		let lastTouch = 0;
+		document.addEventListener('touchend', e => {
+			const now = Date.now();
+			if (now - lastTouch <= 300) e.preventDefault();
+			lastTouch = now;
+		}, { passive: false });
+
+	</script>
+</body>
+
+</html>
