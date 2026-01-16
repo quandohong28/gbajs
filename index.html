@@ -25,9 +25,10 @@
 		}
 
 		.header {
+			position: sticky;
+			top: 40px;
 			display: flex;
 			justify-content: space-between;
-			margin: 36px 0;
 			padding: 0 20px;
 
 		}
@@ -70,6 +71,7 @@
 		.game-list {
 			width: 80%;
 			padding: 8px;
+			margin-top: 80px;
 			height: 488px;
 			overflow-y: auto;
 			display: flex;
@@ -81,21 +83,20 @@
 
 		.main {
 			display: flex;
-
 			justify-content: center;
 			align-items: center;
 		}
 
 		.game-list img {
-			width: 150px;
-			height: 150px;
+			width: 120px;
+			height: 120px;
 			transition: transform 0.2s ease;
 		}
 
 		.game-list img:hover {
 			transform: scale(1.2);
 		}
-		
+
 		.game-list img:focus {
 			transform: scale(1.2);
 		}
