@@ -54,28 +54,54 @@
 			if (gba && FileReader) {
 				var canvas = document.getElementById('screen');
 				gba.setCanvas(canvas);
-
 				gba.logLevel = gba.LOG_ERROR;
 
+				// 1. Tải BIOS trước
 				loadRom('resources/bios.bin', function (bios) {
 					gba.setBios(bios);
+
+					// 2. Sau khi có BIOS, tự động tải Game
+					autoLoadGame('../games/super-mario-bros-3.gba');
 				});
 
+				// Các thiết lập âm thanh/UI khác...
 				if (!gba.audio.context) {
-					// Remove the sound box if sound isn't available
 					var soundbox = document.getElementById('sound');
-					soundbox.parentElement.removeChild(soundbox);
-				}
-
-				if (window.navigator.appName == 'Microsoft Internet Explorer') {
-					// Remove the pixelated option if it doesn't work
-					var pixelatedBox = document.getElementById('pixelated');
-					pixelatedBox.parentElement.removeChild(pixelatedBox);
+					if (soundbox) soundbox.parentElement.removeChild(soundbox);
 				}
 			} else {
 				var dead = document.getElementById('controls');
-				dead.parentElement.removeChild(dead);
+				if (dead) dead.parentElement.removeChild(dead);
 			}
+		}
+
+		function autoLoadGame(url) {
+			var load = document.getElementById('select');
+			if (load) {
+				load.textContent = 'Loading Game...';
+				load.removeAttribute('onclick');
+			}
+
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', url, true);
+			xhr.responseType = 'blob'; // Rất quan trọng: lấy file dưới dạng Blob
+
+			xhr.onload = function () {
+				if (this.status === 200) {
+					var blob = this.response;
+					// Giả lập một đối tượng File từ Blob để tương thích với hàm run() có sẵn
+					blob.name = url.split('/').pop();
+					run(blob);
+				} else {
+					if (load) load.textContent = 'FAILED TO LOAD ROM';
+				}
+			};
+
+			xhr.onerror = function () {
+				if (load) load.textContent = 'NETWORK ERROR';
+			};
+
+			xhr.send();
 		}
 
 		function fadeOut(id, nextId, kill) {
@@ -108,13 +134,23 @@
 		}
 
 		function run(file) {
+			// Kiểm tra xem phần tử loader có tồn tại không trước khi reset giá trị
 			var dead = document.getElementById('loader');
-			dead.value = '';
+			if (dead) {
+				dead.value = '';
+			}
+
 			var load = document.getElementById('select');
-			load.textContent = 'Loading...';
-			load.removeAttribute('onclick');
+			if (load) {
+				load.textContent = 'Loading...';
+				load.removeAttribute('onclick');
+			}
+
 			var pause = document.getElementById('pause');
-			pause.textContent = "PAUSE";
+			if (pause) {
+				pause.textContent = "PAUSE";
+			}
+
 			gba.loadRomFromFile(file, function (result) {
 				if (result) {
 					for (var i = 0; i < runCommands.length; ++i) {
@@ -125,13 +161,15 @@
 					fadeOut('instructions', null, true);
 					gba.runStable();
 				} else {
-					load.textContent = 'FAILED';
-					setTimeout(function () {
-						load.textContent = 'SELECT';
-						load.onclick = function () {
-							document.getElementById('loader').click();
-						}
-					}, 3000);
+					if (load) {
+						load.textContent = 'FAILED';
+						setTimeout(function () {
+							load.textContent = 'SELECT';
+							load.onclick = function () {
+								document.getElementById('loader').click();
+							}
+						}, 3000);
+					}
 				}
 			});
 		}
